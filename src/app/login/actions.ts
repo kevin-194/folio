@@ -35,3 +35,14 @@ export async function login(formData: FormData) {
   revalidatePath("/", "layout");
   redirect("/");
 }
+export async function logout() {
+    const supabase=await createServerSupabaseClient();
+    const {error} = await supabase.auth.signOut();
+    if (error) {
+    redirect(`/login?error=${encodeURIComponent(error.message)}`);
+  }
+
+  revalidatePath("/", "layout");
+  redirect("/login");
+
+}

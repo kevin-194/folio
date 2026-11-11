@@ -1,7 +1,8 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
-import { logout } from "./login/actions";
+import { logout } from "@/app/login/actions";
 import { Button } from "@/components/ui/button";
 
 async function UserInfo() {
@@ -24,21 +25,15 @@ async function UserInfo() {
   );
 }
 
-export default function HomePage() {
+export function AppHeader() {
   return (
-    <div className="min-h-screen">
-      <header className="flex items-center justify-between border-b px-6 py-4">
-        <span className="text-xl font-semibold">Folio</span>
-        <Suspense fallback={<div className="h-8 w-40" />}>
-          <UserInfo />
-        </Suspense>
-      </header>
-      <main className="p-6">
-        <h1 className="text-2xl font-semibold">Welcome to Folio</h1>
-        <p className="mt-2 text-muted-foreground">
-          Your workspaces will appear here.
-        </p>
-      </main>
-    </div>
+    <header className="flex items-center justify-between border-b px-6 py-4">
+      <Link href="/" className="text-xl font-semibold">
+        Folio
+      </Link>
+      <Suspense fallback={<div className="h-8 w-40" />}>
+        <UserInfo />
+      </Suspense>
+    </header>
   );
 }

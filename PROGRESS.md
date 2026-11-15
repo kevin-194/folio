@@ -14,3 +14,10 @@
 - [x] Clients list and new-client form
 - Learned: change the SQL, regenerate types, then write code
 - Moved to Day 3: projects UI
+## Day 3
+- [x] Projects list and new-project form (client dropdown)
+- [x] Milestones table with RLS and composite foreign key
+- [x] Project page with milestones (add, mark done, reopen)
+- [x] Fixed serif font (broken --font-sans variable) and added a brand color
+- Learned: dynamic routes with two params, composite foreign keys for tenant safety
+- Moved to later: visual polish (Day 23)

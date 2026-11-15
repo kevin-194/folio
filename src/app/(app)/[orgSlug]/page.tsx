@@ -22,6 +22,9 @@ async function OrgDetails({ params }: { params: Promise<{ orgSlug: string }> }) 
       <Link className="mt-4 inline-block underline" href={`/${org.slug}/clients`}>
   Clients →
 </Link>
+<Link className="mt-2 block underline" href={`/${org.slug}/projects`}>
+  Projects →
+</Link>
     </main>
   );
 }

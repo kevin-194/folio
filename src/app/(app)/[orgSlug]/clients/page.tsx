@@ -45,7 +45,7 @@ async function ClientsList({ params }: { params: Params }) {
         <ul className="mt-6 flex flex-col gap-3">
           {clients.map((client) => (
             <li key={client.id}>
-              <Card>
+              <Card className="shadow-sm transition-shadow hover:shadow-md">
                 <CardContent className="flex flex-col py-4">
                   <span className="font-medium">{client.name}</span>
                   {client.email && (

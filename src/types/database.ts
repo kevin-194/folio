@@ -129,6 +129,44 @@ export type Database = {
           },
         ]
       }
+      milestones: {
+        Row: {
+          created_at: string
+          due_date: string | null
+          id: string
+          is_done: boolean
+          org_id: string
+          project_id: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          due_date?: string | null
+          id?: string
+          is_done?: boolean
+          org_id: string
+          project_id: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          due_date?: string | null
+          id?: string
+          is_done?: boolean
+          org_id?: string
+          project_id?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "milestones_project_id_org_id_fkey"
+            columns: ["project_id", "org_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id", "org_id"]
+          },
+        ]
+      }
       organizations: {
         Row: {
           created_at: string
@@ -206,6 +244,7 @@ export type Database = {
       }
       is_client_user: { Args: { target_client: string }; Returns: boolean }
       is_org_member: { Args: { target_org: string }; Returns: boolean }
+      is_project_client: { Args: { target_project: string }; Returns: boolean }
     }
     Enums: {
       org_role: "owner" | "admin" | "member"

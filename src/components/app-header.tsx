@@ -27,8 +27,14 @@ async function UserInfo() {
 
 export function AppHeader() {
   return (
-    <header className="flex items-center justify-between border-b px-6 py-4">
-      <Link href="/" className="text-xl font-semibold">
+    <header className="sticky top-0 z-10 flex items-center justify-between border-b bg-background/80 px-6 py-3 backdrop-blur">
+      <Link
+        href="/"
+        className="flex items-center gap-2 text-lg font-semibold tracking-tight"
+      >
+        <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-sm text-primary-foreground">
+          F
+        </span>
         Folio
       </Link>
       <Suspense fallback={<div className="h-8 w-40" />}>

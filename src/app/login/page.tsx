@@ -11,13 +11,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-type SearchParams = Promise<{ error?: string }>;
+type SearchParams = Promise<{ error?: string; next?: string }>;
 
 async function LoginForm({ searchParams }: { searchParams: SearchParams }) {
-  const { error } = await searchParams;
+  const { error, next } = await searchParams;
 
   return (
     <form className="flex flex-col gap-4">
+      <input type="hidden" name="next" value={next ?? ""} />
       <div className="flex flex-col gap-2">
         <Label htmlFor="email">Email</Label>
         <Input id="email" name="email" type="email" required />

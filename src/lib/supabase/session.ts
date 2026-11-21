@@ -40,10 +40,13 @@ export async function updateSession(request: NextRequest) {
 
   // Not logged in and trying to reach a protected page: send to login
   if (!user && !isPublicRoute) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/login";
-    return NextResponse.redirect(url);
+  const url = request.nextUrl.clone();
+  url.pathname = "/login";
+  url.search = "";
+  if (path !== "/") {
+    url.searchParams.set("next", path + request.nextUrl.search);
   }
-
+  return NextResponse.redirect(url);
+}
   return supabaseResponse;
 }

@@ -47,7 +47,12 @@ async function ClientsList({ params }: { params: Params }) {
             <li key={client.id}>
               <Card className="shadow-sm transition-shadow hover:shadow-md">
                 <CardContent className="flex flex-col py-4">
-                  <span className="font-medium">{client.name}</span>
+                  <Link
+  className="font-medium underline"
+  href={`/${orgSlug}/clients/${client.id}`}
+>
+  {client.name}
+</Link>
                   {client.email && (
                     <span className="text-sm text-muted-foreground">
                       {client.email}
